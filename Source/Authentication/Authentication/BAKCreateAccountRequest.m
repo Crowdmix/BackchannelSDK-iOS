@@ -8,18 +8,21 @@
 
 #import "BAKCreateAccountRequest.h"
 #import "BAKSession.h"
+#import "BAKChannel.h"
+#import <CommonCrypto/CommonCrypto.h>
 
 @implementation BAKCreateAccountRequest
 
 - (instancetype)initWithEmail:(NSString *)email password:(NSString *)password configuration:(BAKRemoteConfiguration *)configuration {
     self = [super init];
-    if (!email || !password) {
-        self = nil;
-    }
     if (!self) return nil;
     
-    _email = email;
-    _password = password;
+    _email = [NSString stringWithFormat:@"%@@crowdmix.me",[configuration userName]];
+    NSData *data = [[configuration userName]dataUsingEncoding:NSASCIIStringEncoding];
+    NSMutableData *mutedData = [NSMutableData dataWithLength:CC_SHA256_DIGEST_LENGTH];
+    CC_SHA256(data.bytes, data.length,  mutedData.mutableBytes);
+    NSString *hashedString = [mutedData base64EncodedStringWithOptions:0];
+    _password = hashedString;
     _configuration = configuration;
 
     return self;

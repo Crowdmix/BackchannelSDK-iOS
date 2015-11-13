@@ -18,17 +18,19 @@
 
 @end
 
+static NSString *_displayName;
 static NSString *_globalAPIKey;
 static UIViewController *_rootViewController;
 
 @implementation Backchannel
 
-+ (instancetype)setAPIKey:(NSString *)APIKey {
++ (instancetype)setAPIKey:(NSString *)APIKey{
     _globalAPIKey = APIKey;
     return self._backchannel;
 }
 
-+ (void)setAPIKey:(NSString *)APIKey rootViewController:(UIViewController *)rootViewController {
++ (void)setAPIKey:(NSString *)APIKey rootViewController:(UIViewController *)rootViewController  displayName:(NSString*)displayName{
+    _displayName = displayName;
     _globalAPIKey = APIKey;
     _rootViewController = rootViewController;
     [self _backchannel];
@@ -53,7 +55,7 @@ static UIViewController *_rootViewController;
     if (!self) return nil;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(screenshotDetected:) name:UIApplicationUserDidTakeScreenshotNotification object:nil];
-    self.configuration = [[BAKRemoteConfiguration alloc] initWithAPIKey:_globalAPIKey];
+    self.configuration = [[BAKRemoteConfiguration alloc] initWithAPIKey:_globalAPIKey displayName:_displayName];
     
     return self;
 }
@@ -101,5 +103,11 @@ static UIViewController *_rootViewController;
     }
     return _coordinators;
 }
-
+-(void)createAccountAndSignInIfNotAlready{
+    if(self.coordinators.count == 0){
+        
+    }else{
+        
+    }
+}
 @end

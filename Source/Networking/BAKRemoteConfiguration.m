@@ -11,10 +11,10 @@
 
 @implementation BAKRemoteConfiguration
 
-- (instancetype)initWithAPIKey:(NSString *)APIKey {
+- (instancetype)initWithAPIKey:(NSString *)APIKey displayName:(NSString *)userName{
     self = [super init];
     if (!self) return nil;
-    
+    _userName = userName;
     _APIKey = APIKey;
     
     return self;

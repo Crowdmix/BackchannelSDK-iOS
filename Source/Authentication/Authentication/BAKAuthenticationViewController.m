@@ -38,6 +38,11 @@
     [super viewDidLoad];
     self.authenticationForm.emailField.delegate = self;
     self.authenticationForm.passwordField.delegate = self;
+    
+    self.authenticationForm.emailField.hidden = YES;
+    self.authenticationForm.passwordField.hidden = YES;
+    self.authenticationForm.forgotPasswordButton.hidden = YES;
+    
     [self.authenticationForm.actionButton addTarget:self action:@selector(actionButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.authenticationForm.forgotPasswordButton addTarget:self action:@selector(forgotPasswordButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.authenticationForm.actionButton setTitle:self.data.actionButtonTitle forState:UIControlStateNormal];

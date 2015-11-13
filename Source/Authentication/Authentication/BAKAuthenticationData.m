@@ -24,14 +24,14 @@
     authenticationData.authenticationType = BAKAuthenticationTypeSignIn;
     authenticationData.actionButtonTitle = @"Sign In";
     authenticationData.loadingString = @"Signing in...";
-    authenticationData.showForgotPassword = YES;
+    authenticationData.showForgotPassword = NO;
     return authenticationData;
 }
 
 + (instancetype)createAccountData {
     BAKAuthenticationData *authenticationData = [BAKAuthenticationData new];
     authenticationData.authenticationType = BAKAuthenticationTypeCreateAccount;
-    authenticationData.actionButtonTitle = @"Create Account";
+    authenticationData.actionButtonTitle = @"Join the discussion";
     authenticationData.loadingString = @"Creating account...";
     authenticationData.showForgotPassword = NO;
     return authenticationData;

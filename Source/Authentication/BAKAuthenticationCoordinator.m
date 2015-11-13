@@ -50,16 +50,18 @@
 
 - (void)firstRunViewControllerDidTapCreateAccount:(BAKFirstRunViewController *)firstRunViewController {
     BAKAuthenticationViewController *createAccountViewController = [[BAKAuthenticationViewController alloc] initWithAuthenticationData:[BAKAuthenticationData createAccountData]];
-    [createAccountViewController showKeyboard];
+    //[createAccountViewController showKeyboard];
     createAccountViewController.delegate = self;
-    [self.navigationController pushViewController:createAccountViewController animated:YES];
+    //[self.navigationController pushViewController:createAccountViewController animated:YES];
+    [self authenticationViewController:createAccountViewController didTapActionButtonWithEmail:nil password:nil];
 }
 
 - (void)firstRunViewControllerDidTapSignIn:(BAKFirstRunViewController *)firstRunViewController {
     BAKAuthenticationViewController *signInViewController = [[BAKAuthenticationViewController alloc] initWithAuthenticationData:[BAKAuthenticationData signInData]];
-    [signInViewController showKeyboard];
+    //[signInViewController showKeyboard];
     signInViewController.delegate = self;
-    [self.navigationController pushViewController:signInViewController animated:YES];
+    //[self.navigationController pushViewController:signInViewController animated:YES];
+    [self signInFromViewController:signInViewController withEmail:nil password:nil];
 }
 
 - (void)authenticationViewController:(BAKAuthenticationViewController *)authenticationViewController didTapForgotPasswordButtonWithEmail:(NSString *)email {

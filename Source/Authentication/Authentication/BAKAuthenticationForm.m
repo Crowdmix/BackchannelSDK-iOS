@@ -43,11 +43,11 @@
 
 - (BAKFormGroup *)formGroup {
     if (!_formGroup) {
-        BAKFormGroup *formGroup = [[BAKFormGroup alloc] init];
-        [formGroup addFormField:self.emailFormField];
-        [formGroup addFormField:self.passwordFormField];
-        [self.scrollView addSubview:formGroup];
-        self.formGroup = formGroup;
+//        BAKFormGroup *formGroup = [[BAKFormGroup alloc] init];
+//        [formGroup addFormField:self.emailFormField];
+//        [formGroup addFormField:self.passwordFormField];
+//        [self.scrollView addSubview:formGroup];
+//        self.formGroup = formGroup;
     }
     return _formGroup;
 }
@@ -61,6 +61,7 @@
         textField.keyboardType = UIKeyboardTypeEmailAddress;
         textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
         textField.autocorrectionType = UITextAutocorrectionTypeNo;
+        textField.hidden = YES;
         self.emailFormField = emailFormField;
     }
     return _emailFormField;
@@ -78,6 +79,7 @@
         UITextField *textField = [passwordFormField setTextFieldAsContentView];
         textField.secureTextEntry = YES;
         passwordFormField.shouldShowSeparator = NO;
+        passwordFormField.hidden = YES;
         self.passwordFormField = passwordFormField;
     }
     return _passwordFormField;

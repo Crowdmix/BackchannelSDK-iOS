@@ -61,7 +61,7 @@
 - (UIButton *)createAccountButton {
     if (!_createAccountButton) {
         UIButton *createAccountButton = [BAKAuthenticationButton buttonWithType:UIButtonTypeSystem];
-        [createAccountButton setTitle:@"Create Account" forState:UIControlStateNormal];
+        [createAccountButton setTitle:@"Join the discussion" forState:UIControlStateNormal];
         [self.scrollView addSubview:createAccountButton];
         self.createAccountButton = createAccountButton;
     }

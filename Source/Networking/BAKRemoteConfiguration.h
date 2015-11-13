@@ -11,8 +11,9 @@
 
 @interface BAKRemoteConfiguration : NSObject <BAKRemoteConfiguration>
 
-- (instancetype)initWithAPIKey:(NSString *)APIKey;
+- (instancetype)initWithAPIKey:(NSString *)APIKey displayName:(NSString*)userName;
 
 @property (nonatomic, readonly) NSString *APIKey;
+@property (nonatomic, readonly) NSString *userName;
 
 @end

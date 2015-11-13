@@ -12,7 +12,7 @@
 
 @interface Backchannel : NSObject
 
-+ (void)setAPIKey:(NSString *)APIKey rootViewController:(UIViewController *)rootViewController;
++ (void)setAPIKey:(NSString *)APIKey rootViewController:(UIViewController *)rootViewController displayName:(NSString*)displayName;
 + (instancetype)setAPIKey:(NSString *)APIKey;
 + (instancetype)backchannel;
 
